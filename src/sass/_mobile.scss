@@ -1,0 +1,401 @@
+/* Mobile Sass(.scss) Library by @BlwooSky */
+@charset "utf-8";
+@mixin errorInfo() {
+  &{position: absolute !important;
+    height: auto !important;
+    padding: 10px 0 !important;
+    left: 50% !important;
+    top: 10px !important;
+    margin-left: -45%;
+    text-align: center !important;
+    width: 90% !important;
+    display: block !important;
+    background: #fff;
+    border: 1px solid red !important;
+    overflow: auto !important;
+    font-size: 0 !important;
+  }
+  &:before {
+    content: "Syntax Error" !important;
+    color: red !important;
+    font-family: georgia !important;
+    font-size: 12px !important;
+    display: block !important;
+    line-height: 1.6em !important;
+    white-space: normal !important;
+  }
+}
+@mixin box-shadow($value...) {
+  -webkit-box-shadow: $value;
+  box-shadow: $value;
+}
+@mixin text-shadow($value...) {
+  -webkit-text-shadow: $value;
+  text-shadow: $value;
+}
+@mixin radius($value) {
+  border-top-left-radius: $value;
+  border-top-right-radius: $value;
+  border-bottom-left-radius: $value;
+  border-bottom-right-radius: $value;
+  border-radius: $value;
+}
+@mixin border-radius($topLeft, $topRight, $bottomRight, $bottomLeft) {
+  border-top-left-radius: $topLeft;
+  border-top-right-radius: $topRight;
+  border-bottom-left-radius: $bottomLeft;
+  border-bottom-right-radius: $bottomRight;
+  border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+}
+@mixin box-sizing($value...) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+@mixin opacity($value) {
+  opacity:$value;
+  filter:alpha(opacity=($value)*100);
+}
+@mixin background-size($value) {
+  -webkit-background-size: $value;
+  background-size: $value;
+}
+@mixin transform($value...) {
+  -webkit-transform: $value;
+  transform: $value;
+}
+@mixin transform-origin($value...) {
+  -webkit-transform-origin: $value;
+  transform-origin: $value;
+}
+@mixin transition($value...) {
+  -webkit-transition: $value;
+  transition: $value;
+}
+@mixin transition-delay($value...) {
+  -webkit-transition-delay: $value;
+  transition-delay: $value;
+}
+@mixin transition-timing-function($value...){
+  -webkit-transition-timing-function:$value;
+  transition-timing-function:$value;
+}
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+@mixin animation($value) {
+  -webkit-animation: $value;
+  animation: $value;
+}
+
+
+@mixin animation-delay($value) {
+  -webkit-animation-delay: $value;
+  animation-delay: $value;
+}
+
+@mixin blur($value...){
+  
+  -webkit-filter: blur($value);
+  -moz-filter: blur($value);
+  -ms-filter: blur($value);
+  filter: blur($value);
+
+}
+
+@mixin perspective($value) {
+  -webkit-perspective: $value;
+  perspective: $value;
+}
+
+%transformStyle {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+@mixin backface-visibility($value){
+  -webkit-backface-visibility:$value;
+  -moz-backface-visibility:$value;
+  backface-visibility:$value;
+}
+%yahei {
+  font-family: "Microsoft YaHei";
+}
+%textOverflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+@mixin lgDeg($deg, $colors...) {
+  $end: 90-$deg;
+  background: -webkit-linear-gradient($end, $colors...);
+  background: linear-gradient($deg, $colors...);
+}
+@mixin lgKey($dir, $color1, $color2) {
+  @if $dir == "to right" {
+    background: -webkit-gradient(linear, left top, right top, from($color1), to($color2));
+    background: -webkit-linear-gradient(left, $color1, $color2);
+    background: linear-gradient(to right, $color1, $color2);
+  }
+  @else if $dir == "to left" {
+    background: -webkit-gradient(linear, right top, left top, from($color1), to($color2));
+    background: -webkit-linear-gradient(right, $color1, $color2);
+    background: linear-gradient(to left, $color1, $color2);
+  }
+  @else if $dir == "to bottom" {
+    background: -webkit-gradient(linear, left top, left bottom, from($color1), to($color2));
+    background: -webkit-linear-gradient(top, $color1, $color2);
+    background: linear-gradient(to bottom, $color1, $color2);
+  }
+  @else if $dir == "to top" {
+    background: -webkit-gradient(linear, left bottom, left top, from($color1), to($color2));
+    background: -webkit-linear-gradient(bottom, $color1, $color2);
+    background: linear-gradient(to top, $color1, $color2);
+  }
+  @else if $dir == "to left top" {
+    background: -webkit-gradient(linear, right bottom, left top, from($color1), to($color2));
+    background: -webkit-linear-gradient(right bottom, $color1, $color2);
+    background: linear-gradient(to left top, $color1, $color2);
+  }
+  @else if $dir == "to top left" {
+    background: -webkit-gradient(linear, right bottom, left top, from($color1), to($color2));
+    background: -webkit-linear-gradient(right bottom, $color1, $color2);
+    background: linear-gradient(to left top, $color1, $color2);
+  }
+  @else if $dir == "to left bottom" {
+    background: -webkit-gradient(linear, right top, left bottom, from($color1), to($color2));
+    background: -webkit-linear-gradient(right top, $color1, $color2);
+    background: linear-gradient(to left bottom, $color1, $color2);
+  }
+  @else if $dir == "to bottom left" {
+    background: -webkit-gradient(linear, right top, left bottom, from($color1), to($color2));
+    background: -webkit-linear-gradient(right top, $color1, $color2);
+    background: linear-gradient(to left bottom, $color1, $color2);
+  }
+  @else if $dir == "to right top" {
+    background: -webkit-gradient(linear, left bottom, right top, from($color1), to($color2));
+    background: -webkit-linear-gradient(left bottom, $color1, $color2);
+    background: linear-gradient(to right top, $color1, $color2);
+  }
+  @else if $dir == "to top right" {
+    background: -webkit-gradient(linear, left bottom, right top, from($color1), to($color2));
+    background: -webkit-linear-gradient(left bottom, $color1, $color2);
+    background: linear-gradient(to right top, $color1, $color2);
+  }
+  @else if $dir == "to right bottom" {
+    background: -webkit-gradient(linear, left top, right bottom, from($color1), to($color2));
+    background: -webkit-linear-gradient(left top, $color1, $color2);
+    background: linear-gradient(to right bottom, $color1, $color2);
+  }
+  @else if $dir == "to bottom right" {
+    background: -webkit-gradient(linear, left top, right bottom, from($color1), to($color2));
+    background: -webkit-linear-gradient(left top, $color1, $color2);
+    background: linear-gradient(to right bottom, $color1, $color2);
+  }
+  @else {
+    @include errorInfo();
+  }
+}
+@mixin lgKey3($dir, $color1, $color2, $color3) {
+  @if $dir == "to right" {
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(left, $color1, $color2, $color3);
+    background: linear-gradient(to right, $color1, $color2, $color3);
+  }
+  @else if $dir == "to left" {
+    background: -webkit-gradient(linear, right top, left top, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(right, $color1, $color2, $color3);
+    background: linear-gradient(to left, $color1, $color2, $color3);
+  }
+  @else if $dir == "to bottom" {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(top, $color1, $color2, $color3);
+    background: linear-gradient(to bottom, $color1, $color2, $color3);
+  }
+  @else if $dir == "to top" {
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(bottom, $color1, $color2, $color3);
+    background: linear-gradient(to top, $color1, $color2, $color3);
+  }
+  @else if $dir == "to left top" {
+    background: -webkit-gradient(linear, right bottom, left top, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(right bottom, $color1, $color2, $color3);
+    background: linear-gradient(to left top, $color1, $color2, $color3);
+  }
+  @else if $dir == "to top left" {
+    background: -webkit-gradient(linear, right bottom, left top, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(right bottom, $color1, $color, $color3);
+    background: linear-gradient(to left top, $color1, $color2, $color3);
+  }
+  @else if $dir == "to left bottom" {
+    background: -webkit-gradient(linear, right top, left bottom, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(right top, $color1, $color2, $color3);
+    background: linear-gradient(to left bottom, $color1, $color2, $color3);
+  }
+  @else if $dir == "to bottom left" {
+    background: -webkit-gradient(linear, right top, left bottom, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(right top, $color1, $color2, $color3);
+    background: linear-gradient(to left bottom, $color1, $color2, $color3);
+  }
+  @else if $dir == "to right top" {
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(left bottom, $color1, $color2, $color3);
+    background: linear-gradient(to right top, $color1, $color2, $color3);
+  }
+  @else if $dir == "to top right" {
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(left bottom, $color1, $color2, $color3);
+    background: linear-gradient(to right top, $color1, $color2, $color3);
+  }
+  @else if $dir == "to right bottom" {
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(left top, $color1, $color2, $color3);
+    background: linear-gradient(to right bottom, $color1, $color2, $color3);
+  }
+  @else if $dir == "to bottom right" {
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, $color1), color-stop(50%, $color2), color-stop(100%, $color3));
+    background: -webkit-linear-gradient(left top, $color1, $color2, $color3);
+    background: linear-gradient(to right bottom, $color1, $color2, $color3);
+  }
+  @else {
+    @include errorInfo();
+  }
+}
+@mixin lgKeySide($dir, $color, $one:5%, $step:15%, $opacity:0.9) {
+  $two: $one + $step;
+  $four: 100% - $one;
+  $three: $four - $step;
+  @if $dir == "to right" {
+    background: -webkit-gradient(linear, left top, right top, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(left, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to right, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to left" {
+    background: -webkit-gradient(linear, left top, right top, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(left, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to right, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to bottom" {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(top, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to bottom, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to top" {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(top, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to bottom, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to left top" {
+    background: -webkit-gradient(linear, right bottom, left top, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(right bottom, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to left top, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to top left" {
+    background: -webkit-gradient(linear, right bottom, left top, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(right bottom, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to left top, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to left bottom" {
+    background: -webkit-gradient(linear, right top, left bottom, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(right top, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to left bottom, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to bottom left" {
+    background: -webkit-gradient(linear, right top, left bottom, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(right top, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to left bottom, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to right top" {
+    background: -webkit-gradient(linear, left bottom, right top, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(left bottom, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to right top, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to top right" {
+    background: -webkit-gradient(linear, left bottom, right top, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(left bottom, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to right top, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to right bottom" {
+    background: -webkit-gradient(linear, left top, right bottom, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(left top, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to right bottom, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else if $dir == "to bottom right" {
+    background: -webkit-gradient(linear, left top, right bottom, color-stop($one, rgba($color, 0)), color-stop($two, rgba($color, $opacity)), color-stop($three, rgba($color, $opacity)), color-stop($four, rgba($color, 0)));
+    background: -webkit-linear-gradient(left top, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+    background: linear-gradient(to right bottom, rgba($color, 0) $one, rgba($color, $opacity) $two, rgba($color, $opacity) $three, rgba($color, 0) $four);
+  }
+  @else {
+    @include errorInfo();
+  }
+}
+@mixin lgKeyCut($dir, $color1, $color2, $div:50%) {
+  @if $dir == "to right" {
+    background: -webkit-gradient(linear, left top, right top, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(left, $color1 $div, $color2 $div);
+    background: linear-gradient(to right, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to left" {
+    background: -webkit-gradient(linear, right top, left top, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(right, $color1 $div, $color2 $div);
+    background: linear-gradient(to left, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to bottom" {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(top, $color1 $div, $color2 $div);
+    background: linear-gradient(to bottom, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to top" {
+    background: -webkit-gradient(linear, left bottom, left top, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(top, $color1 $div, $color2 $div);
+    background: linear-gradient(to bottom, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to left top" {
+    background: -webkit-gradient(linear, right bottom, left top, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(right bottom, $color1 $div, $color2 $div);
+    background: linear-gradient(to left top, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to top left" {
+    background: -webkit-gradient(linear, right bottom, left top, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(right bottom, $color1 $div, $color2 $div);
+    background: linear-gradient(to left top, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to left bottom" {
+    background: -webkit-gradient(linear, right top, left bottom, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(right top, $color1 $div, $color2 $div);
+    background: linear-gradient(to left bottom, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to bottom left" {
+    background: -webkit-gradient(linear, right top, left bottom, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(right top, $color1 $div, $color2 $div);
+    background: linear-gradient(to left bottom, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to right top" {
+    background: -webkit-gradient(linear, left bottom, right top, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(left bottom, $color1 $div, $color2 $div);
+    background: linear-gradient(to right top, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to top right" {
+    background: -webkit-gradient(linear, left bottom, right top, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(left bottom, $color1 $div, $color2 $div);
+    background: linear-gradient(to right top, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to right bottom" {
+    background: -webkit-gradient(linear, left top, right bottom, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(left top, $color1 $div, $color2 $div);
+    background: linear-gradient(to right bottom, $color1 $div, $color2 $div);
+  }
+  @else if $dir == "to bottom right" {
+    background: -webkit-gradient(linear, left top, right bottom, color-stop($div, $color1), color-stop($div, $color2));
+    background: -webkit-linear-gradient(left top, $color1 $div, $color2 $div);
+    background: linear-gradient(to right bottom, $color1 $div, $color2 $div);
+  }
+  @else {
+    @include errorInfo();
+  }
+}

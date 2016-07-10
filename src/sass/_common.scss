@@ -1,0 +1,177 @@
+.w{
+	max-width:1200px;
+	margin:0 auto;
+}
+
+@mixin screen($width){
+	@media (max-width: $width){
+		@content
+	}
+}
+
+a{
+	&:hover{
+		text-decoration:underline;
+	}
+}
+
+.fix {
+	*zoom: 1
+}
+
+.fix:after {
+	display: block;
+	content: "$";
+	height: 0;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden
+}
+
+.cell {
+	display: table-cell;
+	*display: inline-block;
+	width: 2000px;
+	*width: auto
+}
+
+ul.fix>li{float:left;}
+.l { float: left; }
+.r { float: right; }
+
+.tar{text-align: right;}
+.tal{text-align: left;}
+.tac{text-align: center;}
+
+.trans{
+	@include transition(0.3s);
+}
+
+.hidden{
+	display: none;
+}
+
+.oh{
+	overflow: hidden;
+}
+
+.ovxh{
+	overflow-x:hidden;
+}
+
+.ovyh{
+	overflow-y:hidden;
+}
+
+.r_img{
+	img{
+	max-width:100%;
+	height:auto;
+	}
+}
+
+.rel{ position:relative; }
+.abs{ position: absolute; }
+
+.p10{ padding:10px; }
+.pl10{ padding-left:10px; }
+.pr10{ padding-right:10px; }
+.pt10{ padding-top:10px; }
+.pb10{ padding-bottom:10px; }
+
+.m10{ margin:10px; }
+.ml10{ margin-left:10px; }
+.mr10{ margin-right:10px; }
+.mt10{ margin-top:10px; }
+.mb10{ margin-bottom:10px; }
+
+.p20{ padding:20px; }
+.pl20{ padding-left:20px; }
+.pr20{ padding-right:20px; }
+.pt20{ padding-top:20px; }
+.pb20{ padding-bottom:20px; }
+
+.ml20{ margin-left:20px; }
+.mr20{ margin-right:20px; }
+.mt20{ margin-top:20px; }
+.mb20{ margin-bottom:20px; }
+
+.dib{ display: inline-block; }
+
+@include screen(520px){
+	.p20{ padding:10px; }
+	.pl20{ padding-left:10px; }
+	.pr20{ padding-right:10px; }
+	.pt20{ padding-top:10px; }
+	.pb20{ padding-bottom:10px; }
+}
+
+h3{
+	font-size:22px;
+}
+
+.paper{
+	background:url(../images/paper_color.png) no-repeat center center;
+}
+.paper_white{
+	background-color:#fbfbfb;
+}
+
+.paper_purple{
+	background-color:#9672e0;
+}
+
+.btn{
+	font-size:14px;
+	color:#fff;
+	line-height:1em;
+	padding:10px 24px;
+	border:none;
+	@include background-size(160px auto);
+	@include box-shadow(3px 3px 5px rgba(#000,0.1));
+	&.paper_purple{
+		&:hover{
+			background-color:lighten(#9672e0,5%);
+		}
+		&:active,
+		&:focus{
+			background-color:darken(#9672e0,5%);
+		}
+	}
+}
+
+
+.sticker{
+	position:relative;
+	&:before,
+	&:after{
+		content:" ";
+		display: block;
+		width:27px;
+		height:22px;
+		position:absolute;
+		top:-8px;
+		background:url(../images/sticker.png) no-repeat;
+	}
+	&:before{
+		left:-11px;
+		background-position: left center;
+	}
+	&:after{
+		right:-11px;
+		background-position: right center;
+	}
+}
+
+.line_paper{
+	background:url(../images/bg_paper.png);
+}
+
+.shadow{
+	@include box-shadow(3px 3px 5px rgba(#000,0.1));
+}
+
+.cover{
+	@include background-size(cover);
+}
+
