@@ -68,7 +68,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg)/,
-                loader: 'url?[name].[ext]',
+                loader:'file-loader?name=images/[name].[ext]',
                 include: __dirname + '/src'
             }
         ]
