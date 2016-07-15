@@ -2,7 +2,7 @@ var isProduction = process.env.NODE_ENV === "production";
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var sassLoader = ['style-loader', 'css-loader', 'sass-loader'];
+var styleLoader = ['style-loader', 'css-loader'];
 
 var plugins = [
     new webpack.DefinePlugin({
@@ -12,7 +12,7 @@ var plugins = [
 
 if (isProduction) {
 
-    sassLoader.shift();
+    styleLoader.shift();
 
     plugins.push(
         new ExtractTextPlugin("styles.css"),
@@ -54,8 +54,8 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.scss$/,
-                loader: isProduction ? ExtractTextPlugin.extract(sassLoader.join("!")) : sassLoader.join("!"),
+                test: /\.css$/,
+                loader: isProduction ? ExtractTextPlugin.extract(styleLoader.join("!")) : styleLoader.join("!"),
                 include: __dirname + '/src'
             },
             {

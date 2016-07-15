@@ -13,7 +13,7 @@ export default class Main extends Component {
                     <div className="mainWrap fix">
                         <div className="l col-2-3">
                             <div>
-                                <h1>Hello ,Welcome TO React Wordfdfld!</h1>
+                                <h1>Hello ,Welcome TO React World!</h1>
                                 <div className="loadingContent">
                                     {this.props.children}
                                 </div>
